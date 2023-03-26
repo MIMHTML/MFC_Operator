@@ -57,7 +57,10 @@
     <ClCompile Include="ex13_function2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ex14_homestudy.cpp">
+    <ClCompile Include="ex14_ttoi_sprintf_s.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\StaticLib\ex15_homestudy2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
