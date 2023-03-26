@@ -166,7 +166,10 @@
     <ClCompile Include="ex13_function.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="ex13_function2.cpp" />
+    <ClCompile Include="ex13_function2.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ex14_homestudy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />

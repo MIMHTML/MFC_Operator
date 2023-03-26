@@ -57,6 +57,9 @@
     <ClCompile Include="ex13_function2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ex14_homestudy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
