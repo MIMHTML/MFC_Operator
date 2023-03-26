@@ -54,13 +54,22 @@
     <ClCompile Include="ex13_function.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ex13_function2.cpp">
+    <ClCompile Include="ex13_function_array.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ex14_ttoi_sprintf_s.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\StaticLib\ex15_homestudy2.cpp">
+    <ClCompile Include="ex13_function_structure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ex15_recurs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="question.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ex16_function_pointer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
