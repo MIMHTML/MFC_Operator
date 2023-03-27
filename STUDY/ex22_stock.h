@@ -16,6 +16,7 @@ public:
 	void sell(int, float);
 	void update(float);
 	void show();
+	Stock topval(Stock&);
 	Stock(std::string, int, float);
 	Stock();
 	~Stock();

@@ -21,11 +21,18 @@ void Stock::update(float pr) {
 	set_total();
 }
 void Stock::show() {
+	std::cout << "-----------------------------------------------" << std::endl;
 	std::cout << "회사 명 : " << name << std::endl;
 	std::cout << "주식 수 : " << shares << std::endl;
 	std::cout << "주가 : " << share_val << std::endl;
 	std::cout << "주식 총 가치 : " << total_val << std::endl;
-	std::cout << "변경!" << std::endl;
+	std::cout << "-----------------------------------------------" << std::endl;
+}
+
+Stock Stock::topval(Stock& s) {
+	if (s.share_val > share_val)
+		return s;
+	else return *this;
 }
 
 // 사용 범위 결정 연산자::
