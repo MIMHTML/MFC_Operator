@@ -72,9 +72,42 @@
     <ClCompile Include="ex16_function_pointer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ex17_inline_function.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ex18_reference_variable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ex19_overloading.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ex20_Generic_Programming.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ex21_separate_compilation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ex21_fuc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ex22_abstract_class.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ex22_fuc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ex21_struct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ex21_new.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ex22_stock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
