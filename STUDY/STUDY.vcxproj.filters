@@ -96,6 +96,21 @@
     <ClCompile Include="ex22_fuc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ex23_operator_overloading.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ex23_fuc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ex23_friend.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ex23_overloading.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ex24_for.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -108,6 +123,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ex22_stock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ex23_time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
