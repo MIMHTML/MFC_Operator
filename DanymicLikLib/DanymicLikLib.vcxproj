@@ -24,7 +24,7 @@
     <ProjectGuid>{8f619d98-10a9-463c-9251-b22297f2ca79}</ProjectGuid>
     <RootNamespace>DanymicLikLib</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>DanymicLinkLib</ProjectName>
+    <ProjectName>P01_DanymicLinkLib</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
