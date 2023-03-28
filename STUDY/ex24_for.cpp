@@ -53,8 +53,9 @@ int main() {
 	}
 	std::cout << "�ִ밪 : " << max_num << std::endl;
 
+	int a[2] = { 1,2 };
 
-
+	char bbb[2] = { 'a','b' };
 
 	return 0;
 }
