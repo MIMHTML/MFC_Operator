@@ -36,4 +36,5 @@ protected:
 public:
 	// WM_LBUTTONDOWN
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnBnClickedShowMsgBtn();
 };
