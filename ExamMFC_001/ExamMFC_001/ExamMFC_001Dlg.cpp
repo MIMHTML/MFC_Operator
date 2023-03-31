@@ -138,7 +138,7 @@ void CExamMFC001Dlg::OnBnClickedShowMsgBtn()
 	CString str, show_str;
 
 	GetDlgItemText(IDC_INPUT_MSG_EDIT, str);
-	//show_str.Format(L"사용자가 입력한 문자열 :  %s", str);
+	//show_str.Format(L"사용자가 입력한 문자열  :  %s", str);
 	show_str = L"사용자가 입력한 문자열 : " + str;
 
 	AfxMessageBox(show_str);
