@@ -37,4 +37,7 @@ public:
 	// WM_LBUTTONDOWN
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnBnClickedShowMsgBtn();
+	afx_msg void OnBnClickedReadBtn();
+	afx_msg void OnBnClickedWriteBtn();
+
 };
