@@ -33,6 +33,8 @@ BEGIN_MESSAGE_MAP(CExamMFC001Dlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
 	ON_WM_LBUTTONDOWN()
 	ON_BN_CLICKED(IDC_SHOW_MSG_BTN, &CExamMFC001Dlg::OnBnClickedShowMsgBtn)
+	ON_BN_CLICKED(IDC_READ_BTN, &CExamMFC001Dlg::OnBnClickedReadBtn)
+	ON_BN_CLICKED(IDC_WRITE_BTN, &CExamMFC001Dlg::OnBnClickedWriteBtn)
 END_MESSAGE_MAP()
 
 
@@ -133,5 +135,36 @@ void CExamMFC001Dlg::OnLButtonDown(UINT nFlags, CPoint point)
 
 void CExamMFC001Dlg::OnBnClickedShowMsgBtn()
 {
+	CString str, show_str;
 
+	GetDlgItemText(IDC_INPUT_MSG_EDIT, str);
+	//show_str.Format(L"사용자가 입력한 문자열 :  %s", str);
+	show_str = L"사용자가 입력한 문자열 : " + str;
+
+	AfxMessageBox(show_str);
+}
+
+void CExamMFC001Dlg::OnBnClickedReadBtn()
+{
+	wchar_t str[4];
+	// GetDlgItemText(IDC_INPUT_MSG_EDIT, str, 24);
+	
+	CWnd *p = GetDlgItem(IDC_INPUT_MSG_EDIT);
+	int len = p->GetWindowTextLength();
+
+	if (len > 3) {
+		AfxMessageBox(L"너무 길게 입력했습니다.");
+	}
+	else {
+		GetDlgItemText(IDC_INPUT_MSG_EDIT, str, 4);
+		AfxMessageBox(str);
+	}
+
+	// CEdit* p_edit = (CEdit*)GetDlgItem(IDC_INPUT_MSG_EDIT);
+
+}
+
+void CExamMFC001Dlg::OnBnClickedWriteBtn()
+{
+	SetDlgItemText(IDC_INPUT_MSG_EDIT, L"명일");
 }
