@@ -233,6 +233,7 @@
     <ClCompile Include="ex27_inheritance.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="ex27_inheritance2.cpp" />
     <ClCompile Include="question.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -241,6 +242,7 @@
     <ClInclude Include="ex21_new.h" />
     <ClInclude Include="ex22_stock.h" />
     <ClInclude Include="ex23_time.h" />
+    <ClInclude Include="ex27_inheritance2.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="ex21_struct.h" />
   </ItemGroup>
