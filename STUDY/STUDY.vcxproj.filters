@@ -126,6 +126,9 @@
     <ClCompile Include="ex27_inheritance2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ex27_inheritance3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">

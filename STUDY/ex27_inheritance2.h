@@ -45,27 +45,7 @@ public:
 	}
 
 
-
-
 }; // class Car
-
-
-
-class Computer : public Car
-{
-private:
-	std::string ram;
-	std::string hdd;
-
-public:
-	void setRam(std::string ram) { this->ram = ram; }
-	std::string getRam() const { return ram; }
-
-	void setHdd(std::string hdd) { this->hdd = hdd; }
-	std::string getHdd() const { return hdd; }
-
-}; // class Computer : public Car
-
 
 
 #endif // #ifndef INHERITANCE_EXAM
