@@ -129,6 +129,9 @@
     <ClCompile Include="ex27_inheritance3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ex27_inheritance3_function.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -147,6 +150,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ex27_inheritance2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ex27_Machine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ex27_Car.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,9 +1,6 @@
 #include <iostream>
 
-
 inline float square(float x) { return x * x; }
-
-
 
 int main() {
 	// 인라인 함수
