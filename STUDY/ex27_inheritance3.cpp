@@ -27,7 +27,7 @@ int main() {
 	machine.mcOff();
 
 	car->setBrand("test Brand");
-	car->setModel("test car Model setting");
+	car->setModel("test car Model setting");	
 	pCar->setTier("ff");
 	car->displaySpec();
 	pCar->displaySpec();
