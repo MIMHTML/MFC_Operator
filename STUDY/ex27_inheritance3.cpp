@@ -1,11 +1,15 @@
 #include "ex27_Machine.h"
 #include "ex27_Car.h"
 
+
 int main() {
 
 	Machine machine;
 	Machine* car = new Car();
 	Car* pCar = dynamic_cast<Car*>(car);
+
+	char buf[100];
+	sprintf(buf, "");
 	
 	machine.setBrand("Samsung");
 	machine.setModel("Galaxy");
