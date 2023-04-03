@@ -5,6 +5,7 @@ int main() {
 
 	Machine machine;
 	Machine* car = new Car();
+	Car* pCar = dynamic_cast<Car*>(car);
 	
 	machine.setBrand("Samsung");
 	machine.setModel("Galaxy");
@@ -20,6 +21,14 @@ int main() {
 	machine.mcStart();
 	machine.mcUse();
 	machine.mcOff();
+
+	car->setBrand("test Brand");
+	car->setModel("test car Model setting");
+	pCar->setTier("ff");
+	car->displaySpec();
+	pCar->displaySpec();
+	std::cout << car->getBrand() << std::endl;
+	car->mcStart();
 
 	Car* car2 = new Car();
 
