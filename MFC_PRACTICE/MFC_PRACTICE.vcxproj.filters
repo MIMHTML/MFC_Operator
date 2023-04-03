@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="openCV_MFC.h">
+    <ClInclude Include="MFC_PRACTICE.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="openCV_MFCDlg.h">
+    <ClInclude Include="MFC_PRACTICEDlg.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="framework.h">
@@ -35,31 +35,28 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="openCV_MFC.cpp">
+    <ClCompile Include="MFC_PRACTICE.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="openCV_MFCDlg.cpp">
+    <ClCompile Include="MFC_PRACTICEDlg.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="facedetect_image.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="openCVMFC.rc">
+    <ResourceCompile Include="MFCPRACTICE.rc">
       <Filter>리소스 파일</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\openCVMFC.rc2">
+    <None Include="res\MFCPRACTICE.rc2">
       <Filter>리소스 파일</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\openCV_MFC.ico">
+    <Image Include="res\MFC_PRACTICE.ico">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

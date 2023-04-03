@@ -1,20 +1,20 @@
 ﻿
-// openCV_MFCDlg.h: 헤더 파일
+// MFC_PRACTICEDlg.h: 헤더 파일
 //
 
 #pragma once
 
 
-// CopenCVMFCDlg 대화 상자
-class CopenCVMFCDlg : public CDialogEx
+// CMFCPRACTICEDlg 대화 상자
+class CMFCPRACTICEDlg : public CDialogEx
 {
 // 생성입니다.
 public:
-	CopenCVMFCDlg(CWnd* pParent = nullptr);	// 표준 생성자입니다.
+	CMFCPRACTICEDlg(CWnd* pParent = nullptr);	// 표준 생성자입니다.
 
 // 대화 상자 데이터입니다.
 #ifdef AFX_DESIGN_TIME
-	enum { IDD = IDD_OPENCV_MFC_DIALOG };
+	enum { IDD = IDD_MFC_PRACTICE_DIALOG };
 #endif
 
 	protected:
@@ -31,5 +31,6 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnBnClickedBtnFacedefectImage();
+	CListBox m_chat_list;
+	virtual afx_msg void OnBnClickedChatBtn();
 };

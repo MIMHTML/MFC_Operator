@@ -1,43 +1,42 @@
 ﻿
-// openCV_MFCDlg.cpp: 구현 파일
+// MFC_PRACTICEDlg.cpp: 구현 파일
 //
 
 #include "pch.h"
 #include "framework.h"
-#include "openCV_MFC.h"
-#include "openCV_MFCDlg.h"
+#include "MFC_PRACTICE.h"
+#include "MFC_PRACTICEDlg.h"
 #include "afxdialogex.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
-
-// CopenCVMFCDlg 대화 상자
-
+// CMFCPRACTICEDlg 대화 상자
 
 
-CopenCVMFCDlg::CopenCVMFCDlg(CWnd* pParent /*=nullptr*/)
-	: CDialogEx(IDD_OPENCV_MFC_DIALOG, pParent)
+CMFCPRACTICEDlg::CMFCPRACTICEDlg(CWnd* pParent /*=nullptr*/)
+	: CDialogEx(IDD_MFC_PRACTICE_DIALOG, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
-void CopenCVMFCDlg::DoDataExchange(CDataExchange* pDX)
+void CMFCPRACTICEDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_CHAT_LIST, m_chat_list);
 }
 
-BEGIN_MESSAGE_MAP(CopenCVMFCDlg, CDialogEx)
+BEGIN_MESSAGE_MAP(CMFCPRACTICEDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_BTN_FACEDEFECT_IMAGE, &CopenCVMFCDlg::OnBnClickedBtnFacedefectImage)
+	ON_BN_CLICKED(IDC_CHAT_BTN, &CMFCPRACTICEDlg::OnBnClickedChatBtn)
 END_MESSAGE_MAP()
 
 
-// CopenCVMFCDlg 메시지 처리기
+// CMFCPRACTICEDlg 메시지 처리기
 
-BOOL CopenCVMFCDlg::OnInitDialog()
+BOOL CMFCPRACTICEDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
@@ -55,7 +54,7 @@ BOOL CopenCVMFCDlg::OnInitDialog()
 //  아래 코드가 필요합니다.  문서/뷰 모델을 사용하는 MFC 애플리케이션의 경우에는
 //  프레임워크에서 이 작업을 자동으로 수행합니다.
 
-void CopenCVMFCDlg::OnPaint()
+void CMFCPRACTICEDlg::OnPaint()
 {
 	if (IsIconic())
 	{
@@ -82,14 +81,18 @@ void CopenCVMFCDlg::OnPaint()
 
 // 사용자가 최소화된 창을 끄는 동안에 커서가 표시되도록 시스템에서
 //  이 함수를 호출합니다.
-HCURSOR CopenCVMFCDlg::OnQueryDragIcon()
+HCURSOR CMFCPRACTICEDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
-
-
-void CopenCVMFCDlg::OnBnClickedBtnFacedefectImage()
+void CMFCPRACTICEDlg::OnBnClickedChatBtn()
 {
+	CString str;
+	GetDlgItemText(IDC_CHAT_EDIT, str);
+	SetDlgItemText(IDC_CHAT_EDIT, L"");
 
+	int index = m_chat_list.InsertString(-1, str);
+	m_chat_list.SetCurSel(index);
 }
+

@@ -1,5 +1,5 @@
 ﻿
-// openCV_MFC.h: PROJECT_NAME 애플리케이션에 대한 주 헤더 파일입니다.
+// MFC_PRACTICE.h: PROJECT_NAME 애플리케이션에 대한 주 헤더 파일입니다.
 //
 
 #pragma once
@@ -11,14 +11,14 @@
 #include "resource.h"		// 주 기호입니다.
 
 
-// CopenCVMFCApp:
-// 이 클래스의 구현에 대해서는 openCV_MFC.cpp을(를) 참조하세요.
+// CMFCPRACTICEApp:
+// 이 클래스의 구현에 대해서는 MFC_PRACTICE.cpp을(를) 참조하세요.
 //
 
-class CopenCVMFCApp : public CWinApp
+class CMFCPRACTICEApp : public CWinApp
 {
 public:
-	CopenCVMFCApp();
+	CMFCPRACTICEApp();
 
 // 재정의입니다.
 public:
@@ -29,4 +29,4 @@ public:
 	DECLARE_MESSAGE_MAP()
 };
 
-extern CopenCVMFCApp theApp;
+extern CMFCPRACTICEApp theApp;
