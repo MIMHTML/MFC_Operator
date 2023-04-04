@@ -41,7 +41,6 @@ public:
 	afx_msg void OnBnClickedButtonMultiply();
 	afx_msg void OnBnClickedButtonDevide();
 	afx_msg void OnBnClickedButtonRemain();
-	afx_msg void OnBnClickedButtonPlus2();
 	afx_msg void OnBnClickedButtonEq();
 	afx_msg void OnBnClickedButtonNoteq();
 	afx_msg void OnBnClickedButtonAtb();

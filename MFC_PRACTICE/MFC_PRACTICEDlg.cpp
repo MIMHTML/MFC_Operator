@@ -24,13 +24,13 @@ CMFCPRACTICEDlg::CMFCPRACTICEDlg(CWnd* pParent /*=nullptr*/)
 void CMFCPRACTICEDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_CHAT_LIST, m_chat_list);
 }
 
 BEGIN_MESSAGE_MAP(CMFCPRACTICEDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_CHAT_BTN, &CMFCPRACTICEDlg::OnBnClickedChatBtn)
+	ON_WM_LBUTTONDOWN()
+	ON_WM_RBUTTONDOWN()
 END_MESSAGE_MAP()
 
 
@@ -46,6 +46,7 @@ BOOL CMFCPRACTICEDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 작은 아이콘을 설정합니다.
 
 	// TODO: 여기에 추가 초기화 작업을 추가합니다.
+	
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
@@ -56,17 +57,29 @@ BOOL CMFCPRACTICEDlg::OnInitDialog()
 
 void CMFCPRACTICEDlg::OnPaint()
 {
+	CPaintDC dc(this); // 그리기를 위한 디바이스 컨텍스트입니다.
+	dc.Rectangle(10, 10, 200, 200); // 좌상단, 우하단 좌표값
+	dc.Ellipse(200, 100, 500, 200);
+
+	CRect rect;
+	GetClientRect(&rect);
+
+	dc.MoveTo(rect.bottom / 2, 0);
+	dc.LineTo(rect.right, rect.bottom / 2);
+
+	dc.MoveTo(rect.right / 2, 0);
+	dc.LineTo(rect.right / 2, rect.bottom);
+
+
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // 그리기를 위한 디바이스 컨텍스트입니다.
-
+		
 		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
 		// 클라이언트 사각형에서 아이콘을 가운데에 맞춥니다.
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
-		CRect rect;
-		GetClientRect(&rect);
+	
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
 
@@ -86,13 +99,18 @@ HCURSOR CMFCPRACTICEDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
-void CMFCPRACTICEDlg::OnBnClickedChatBtn()
-{
-	CString str;
-	GetDlgItemText(IDC_CHAT_EDIT, str);
-	SetDlgItemText(IDC_CHAT_EDIT, L"");
 
-	int index = m_chat_list.InsertString(-1, str);
-	m_chat_list.SetCurSel(index);
+void CMFCPRACTICEDlg::OnLButtonDown(UINT nFlags, CPoint point)
+{
+	CClientDC dc(this);
+
+	dc.Rectangle(point.x - 20, point.y - 20, point.x + 20, point.y + 20);
 }
 
+
+void CMFCPRACTICEDlg::OnRButtonDown(UINT nFlags, CPoint point)
+{
+	CClientDC dc(this);
+
+	dc.Ellipse(point.x - 20, point.y - 20, point.x + 20, point.y + 20);
+}

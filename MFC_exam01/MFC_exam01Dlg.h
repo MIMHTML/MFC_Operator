@@ -1,20 +1,20 @@
 ﻿
-// MFC_PRACTICEDlg.h: 헤더 파일
+// MFC_exam01Dlg.h: 헤더 파일
 //
 
 #pragma once
 
 
-// CMFCPRACTICEDlg 대화 상자
-class CMFCPRACTICEDlg : public CDialogEx
+// CMFCexam01Dlg 대화 상자
+class CMFCexam01Dlg : public CDialogEx
 {
 // 생성입니다.
 public:
-	CMFCPRACTICEDlg(CWnd* pParent = nullptr);	// 표준 생성자입니다.
+	CMFCexam01Dlg(CWnd* pParent = nullptr);	// 표준 생성자입니다.
 
 // 대화 상자 데이터입니다.
 #ifdef AFX_DESIGN_TIME
-	enum { IDD = IDD_MFC_PRACTICE_DIALOG };
+	enum { IDD = IDD_MFC_EXAM01_DIALOG };
 #endif
 
 	protected:
@@ -27,11 +27,11 @@ protected:
 
 	// 생성된 메시지 맵 함수
 	virtual BOOL OnInitDialog();
+	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
-
 public:
-	virtual afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
-	afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnBnClickedButtonMessage();
+	afx_msg void OnBnClickedButtonAction();
 };
