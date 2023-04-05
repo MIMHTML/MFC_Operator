@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
-    <ProjectGuid>{EA13846A-0F73-45DE-A416-DD1838C7B6F3}</ProjectGuid>
+    <ProjectGuid>{6C747BCD-6CA0-42FB-8190-2BCD906AB3C8}</ProjectGuid>
     <Keyword>MFCProj</Keyword>
-    <RootNamespace>MFCPRACTICE</RootNamespace>
+    <RootNamespace>MFCFILECONTROL</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -184,15 +184,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
-    <ClInclude Include="MFC_PRACTICE.h" />
-    <ClInclude Include="MFC_PRACTICEDlg.h" />
+    <ClInclude Include="MFC_FILE_CONTROL.h" />
+    <ClInclude Include="MFC_FILE_CONTROLDlg.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MFC_PRACTICE.cpp" />
-    <ClCompile Include="MFC_PRACTICEDlg.cpp" />
+    <ClCompile Include="MFC_FILE_CONTROL.cpp" />
+    <ClCompile Include="MFC_FILE_CONTROLDlg.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -201,13 +201,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="MFCPRACTICE.rc" />
+    <ResourceCompile Include="MFCFILECONTROL.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\MFCPRACTICE.rc2" />
+    <None Include="res\MFCFILECONTROL.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\MFC_PRACTICE.ico" />
+    <Image Include="res\MFC_FILE_CONTROL.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
