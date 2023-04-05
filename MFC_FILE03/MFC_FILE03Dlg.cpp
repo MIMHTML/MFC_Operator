@@ -1,46 +1,44 @@
 ﻿
-// MFC_FILE_CONTROLDlg.cpp: 구현 파일
+// MFC_FILE03Dlg.cpp: 구현 파일
 //
 
 #include "pch.h"
 #include "framework.h"
-#include "MFC_FILE_CONTROL.h"
-#include "MFC_FILE_CONTROLDlg.h"
+#include "MFC_FILE03.h"
+#include "MFC_FILE03Dlg.h"
 #include "afxdialogex.h"
-
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
 
-// CMFCFILECONTROLDlg 대화 상자
+// CMFCFILE03Dlg 대화 상자
 
 
 
-CMFCFILECONTROLDlg::CMFCFILECONTROLDlg(CWnd* pParent /*=nullptr*/)
-	: CDialogEx(IDD_MFC_FILE_CONTROL_DIALOG, pParent)
+CMFCFILE03Dlg::CMFCFILE03Dlg(CWnd* pParent /*=nullptr*/)
+	: CDialogEx(IDD_MFC_FILE03_DIALOG, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
-void CMFCFILECONTROLDlg::DoDataExchange(CDataExchange* pDX)
+void CMFCFILE03Dlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_PIC, m_picture_control);
+	DDX_Control(pDX, IDC_IMAGE_VIEW, m_image_view);
 }
 
-BEGIN_MESSAGE_MAP(CMFCFILECONTROLDlg, CDialogEx)
+BEGIN_MESSAGE_MAP(CMFCFILE03Dlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_MFCBUTTON1, &CMFCFILECONTROLDlg::OnBnClickedMfcbutton1)
-	
+	ON_BN_CLICKED(IDC_BTN_IMAGE, &CMFCFILE03Dlg::OnBnClickedBtnImage)
 END_MESSAGE_MAP()
 
 
-// CMFCFILECONTROLDlg 메시지 처리기
+// CMFCFILE03Dlg 메시지 처리기
 
-BOOL CMFCFILECONTROLDlg::OnInitDialog()
+BOOL CMFCFILE03Dlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
@@ -58,7 +56,7 @@ BOOL CMFCFILECONTROLDlg::OnInitDialog()
 //  아래 코드가 필요합니다.  문서/뷰 모델을 사용하는 MFC 애플리케이션의 경우에는
 //  프레임워크에서 이 작업을 자동으로 수행합니다.
 
-void CMFCFILECONTROLDlg::OnPaint()
+void CMFCFILE03Dlg::OnPaint()
 {
 	if (IsIconic())
 	{
@@ -85,13 +83,23 @@ void CMFCFILECONTROLDlg::OnPaint()
 
 // 사용자가 최소화된 창을 끄는 동안에 커서가 표시되도록 시스템에서
 //  이 함수를 호출합니다.
-HCURSOR CMFCFILECONTROLDlg::OnQueryDragIcon()
+HCURSOR CMFCFILE03Dlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
-void CMFCFILECONTROLDlg::OnBnClickedMfcbutton1()
+
+
+void CMFCFILE03Dlg::OnBnClickedBtnImage()
 {
+	CRect rect;
+	CDC* dc;
+	CImage image;
+
+	m_image_view.GetWindowRect(rect);
+	dc = m_image_view.GetDC();
+	image.Load(_T("5.jpg"));
+
+	image.StretchBlt(dc->m_hDC, 0, 0, rect.Width(), rect.Height(), SRCCOPY);
 
 }
-

@@ -1,20 +1,20 @@
 ﻿
-// MFC_FILE_CONTROLDlg.h: 헤더 파일
+// MFC_FILE03Dlg.h: 헤더 파일
 //
 
 #pragma once
 
 
-// CMFCFILECONTROLDlg 대화 상자
-class CMFCFILECONTROLDlg : public CDialogEx
+// CMFCFILE03Dlg 대화 상자
+class CMFCFILE03Dlg : public CDialogEx
 {
 // 생성입니다.
 public:
-	CMFCFILECONTROLDlg(CWnd* pParent = nullptr);	// 표준 생성자입니다.
+	CMFCFILE03Dlg(CWnd* pParent = nullptr);	// 표준 생성자입니다.
 
 // 대화 상자 데이터입니다.
 #ifdef AFX_DESIGN_TIME
-	enum { IDD = IDD_MFC_FILE_CONTROL_DIALOG };
+	enum { IDD = IDD_MFC_FILE03_DIALOG };
 #endif
 
 	protected:
@@ -31,8 +31,6 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnBnClickedMfcbutton1();
-	CListCtrl m_listBox;
-
-	CStatic m_picture_control;
+	afx_msg void OnBnClickedBtnImage();
+	CStatic m_image_view;
 };
