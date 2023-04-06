@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Puppy.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MFC_DOG.h" />
     <ClInclude Include="MFC_DOGDlg.h" />
@@ -191,6 +192,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Puppy.cpp" />
     <ClCompile Include="MFC_DOG.cpp" />
     <ClCompile Include="MFC_DOGDlg.cpp" />
     <ClCompile Include="pch.cpp">

@@ -19,8 +19,6 @@
 
 CMFCDOGDlg::CMFCDOGDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_MFC_DOG_DIALOG, pParent)
-	, m_puppy_breed(_T(""))
-	, m_puppy_content(_T(""))
 	, m_puppy_image_file_path(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -29,10 +27,10 @@ CMFCDOGDlg::CMFCDOGDlg(CWnd* pParent /*=nullptr*/)
 void CMFCDOGDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_PUPPY_BREED, m_puppy_breed);
-	DDX_Text(pDX, IDC_PUPPY_CONTENT, m_puppy_content);
 	DDX_Text(pDX, IDC_PUPPY_IMAGE_FILE_PATH, m_puppy_image_file_path);
 	DDX_Control(pDX, IDC_PUPPY_IMAGE_VIEW, m_puppy_image_view);
+	DDX_Control(pDX, IDC_PUPPY_CONTENT, m_puppy_content);
+	DDX_Control(pDX, IDC_PUPPY_BREED, m_puppy_breed);
 }
 
 BEGIN_MESSAGE_MAP(CMFCDOGDlg, CDialogEx)
@@ -95,27 +93,45 @@ HCURSOR CMFCDOGDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
-
+#include "Puppy.h"
 
 void CMFCDOGDlg::OnBnClickedPuppyTextFileOpen()
 {
-	CStringArray puppuContentArray;
 
-	CListBox* pPuppyContentListBox = (CListBox*)GetDlgItem(IDC_PUPPY_CONTENT);
 	
-	CString newString = _T("새로운 문자열");
-	puppuContentArray.Add(newString);
 
-	for (int i = 0; i < puppuContentArray.GetSize(); i++) {
-		pPuppyContentListBox->AddString(puppuContentArray[i]);
-	}
-	pPuppyContentListBox->AddString(_T("새로운 문자열"));
+	Puppy pp;
+	pp.setBreed("go");
+	std::string str = pp.getBreed();
 
 
-	MessageBox(puppuContentArray[0]);
+	// string을 CString형으로 변환
+
+	CString cstr;  // CString 객체 생성
+	int len = MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, NULL, 0);  // 변환할 문자열 길이 계산
+	wchar_t* wstr = new wchar_t[len];  // 변환된 문자열을 저장할 버퍼 생성
+	MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, wstr, len);  // 문자열 변환
+	cstr = wstr;  // 변환된 문자열을 CString 객체에 저장
+	
+	MessageBox(wstr);
+
+
+
+	// List Box 핸들 가져오기
+	CListBox* pListBox = (CListBox*)GetDlgItem(IDC_PUPPY_CONTENT);
+
+	// List Box에 추가할 문자열 생성
+	CString strText = _T("새로운 문자열");
+
+	// List Box에 문자열 추가
+	pListBox->AddString(strText);
+
+	m_puppy_content.SetDlgItemTextW(0, strText);
+
+	MessageBox(strText);
 }
 
-
+#include "Puppy.h"
 void CMFCDOGDlg::OnBnClickedPuppyTextFileModify()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
