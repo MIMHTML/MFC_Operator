@@ -33,10 +33,10 @@ protected:
 public:
 	CStatic m_image_view;
 	afx_msg void OnBnClickedImageButton();
-	afx_msg void OnBnClickedFileButton();
 	CListCtrl m_list;
 	CString m_strName;
 	CString m_strAge;
 	afx_msg void OnBnClickedAddButton();
 	afx_msg void OnBnClickedDeleteButton();
+	afx_msg void OnBnClickedFileButton();
 };

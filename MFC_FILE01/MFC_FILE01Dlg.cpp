@@ -12,10 +12,9 @@
 #define new DEBUG_NEW
 #endif
 
-
 // CMFCFILE01Dlg 대화 상자
 
-
+#include <vector>
 
 CMFCFILE01Dlg::CMFCFILE01Dlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_MFC_FILE01_DIALOG, pParent)
@@ -40,6 +39,7 @@ BEGIN_MESSAGE_MAP(CMFCFILE01Dlg, CDialogEx)
 	ON_BN_CLICKED(IDC_IMAGE_BUTTON, &CMFCFILE01Dlg::OnBnClickedImageButton)
 	ON_BN_CLICKED(IDC_ADD_BUTTON, &CMFCFILE01Dlg::OnBnClickedAddButton)
 	ON_BN_CLICKED(IDC_DELETE_BUTTON, &CMFCFILE01Dlg::OnBnClickedDeleteButton)
+	ON_BN_CLICKED(IDC_FILE_BUTTON, &CMFCFILE01Dlg::OnBnClickedFileButton)
 END_MESSAGE_MAP()
 
 
@@ -62,6 +62,10 @@ BOOL CMFCFILE01Dlg::OnInitDialog()
 	m_list.GetClientRect(&rect);
 
 	// 리스트 컨트롤 컬럼 추가
+	//	- 첫번째 인자: 컬럼의 인덱스
+	//	- 두번째 인자: 컬럼의 제목
+	//	- 세번째 인자: 컬럼의 정렬방식 (LVCFMT_LEFT => 왼쪽 정렬)
+	//	- 네번째 인자: 컬럼의 너비
 	m_list.InsertColumn(0, _T("이름"), LVCFMT_LEFT, 300);
 
 	// 마지막에 추가할 컬럼의 폭은 리스트 컨트롤의 너비에서 이미 추가한
@@ -72,6 +76,17 @@ BOOL CMFCFILE01Dlg::OnInitDialog()
 	CString sampleName[] = { _T("김명일"), _T("김명일2") };
 	CString sampleAge[] = { _T("23"), _T("33") };
 
+
+	// InsertItem() 함수와 SetItemText() 함수를 사용하여 리스트 컨트롤에 데이터를 추가합니다.
+	//	1) InsertItem()
+	//		- 첫번째 인자: 항목의 인덱스
+	//		- 두번째 인자: 항목의 텍스트
+	//		- 세번째 인자: 항목의 이미지 인덱스
+	
+	//	2) SetItemText()
+	//		- 첫번째 인자: 항목의 인덱스
+	//		- 두번째 인자: 항목의 서브항목 인덱스
+	//		- 세번째 인자: 항목의 텍스트
 	for (int i = 0; i < 2; i++) {
 		//이름 추가하기
 		m_list.InsertItem(i, sampleName[i], i % 5);
@@ -121,8 +136,6 @@ HCURSOR CMFCFILE01Dlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
-
-
 void CMFCFILE01Dlg::OnBnClickedImageButton()
 {
 	CRect rect;
@@ -134,25 +147,6 @@ void CMFCFILE01Dlg::OnBnClickedImageButton()
 	image.Load(_T("5.jpg"));
 	image.StretchBlt(dc->m_hDC, 0, 0, rect.Width(), rect.Height(), SRCCOPY);
 }
-
-#include <vector>
-
-void CMFCFILE01Dlg::OnBnClickedFileButton()
-{
-	CFile file;
-	std::vector<CString> vServiceTest;
-	for (int i = 0; i < 10; i++) {
-		vServiceTest.push_back(_T("10\n"));
-	}
-
-	file.Open(_T("Txt1.txt"), CFile::modeCreate | CFile::modeWrite, NULL);
-	
-	for (int i = 0; i < vServiceTest.size(); i++) {
-		file.Write(vServiceTest.at(i), vServiceTest.at(i).GetLength()* sizeof(TCHAR));
-	}
-	file.Close();
-}
-
 
 void CMFCFILE01Dlg::OnBnClickedAddButton()
 {
@@ -191,4 +185,20 @@ void CMFCFILE01Dlg::OnBnClickedDeleteButton()
 		}
 	
 	}
+}
+
+void CMFCFILE01Dlg::OnBnClickedFileButton()
+{
+	CFile file;
+	std::vector<CString> vServiceTest;
+	for (int i = 0; i < 10; i++) {
+		vServiceTest.push_back(_T("10\n"));
+	}
+
+	file.Open(_T("Txt1.txt"), CFile::modeCreate | CFile::modeWrite, NULL);
+
+	for (int i = 0; i < vServiceTest.size(); i++) {
+		file.Write(vServiceTest.at(i), vServiceTest.at(i).GetLength() * sizeof(TCHAR));
+	}
+	file.Close();
 }
