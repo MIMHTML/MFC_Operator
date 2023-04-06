@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
-    <ProjectGuid>{7FD963DF-D1E6-4CF2-B4F1-C6B17B4E3D6B}</ProjectGuid>
+    <ProjectGuid>{EB0DAB8D-7F9B-4A61-9D4C-2BE769BC6C57}</ProjectGuid>
     <Keyword>MFCProj</Keyword>
-    <RootNamespace>MFCFILE01</RootNamespace>
+    <RootNamespace>MFCDOG</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -183,18 +183,16 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CChildDlg.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="MFC_FILE01.h" />
-    <ClInclude Include="MFC_FILE01Dlg.h" />
+    <ClInclude Include="MFC_DOG.h" />
+    <ClInclude Include="MFC_DOGDlg.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CChildDlg.cpp" />
-    <ClCompile Include="MFC_FILE01.cpp" />
-    <ClCompile Include="MFC_FILE01Dlg.cpp" />
+    <ClCompile Include="MFC_DOG.cpp" />
+    <ClCompile Include="MFC_DOGDlg.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -203,13 +201,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="MFCFILE01.rc" />
+    <ResourceCompile Include="MFCDOG.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\MFCFILE01.rc2" />
+    <None Include="res\MFCDOG.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\MFC_FILE01.ico" />
+    <Image Include="res\MFC_DOG.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

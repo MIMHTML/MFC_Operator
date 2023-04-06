@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MFC_FILE01.h">
+    <ClInclude Include="MFC_DOG.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="MFC_FILE01Dlg.h">
+    <ClInclude Include="MFC_DOGDlg.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="framework.h">
@@ -33,36 +33,30 @@
     <ClInclude Include="pch.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="CChildDlg.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MFC_FILE01.cpp">
+    <ClCompile Include="MFC_DOG.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="MFC_FILE01Dlg.cpp">
+    <ClCompile Include="MFC_DOGDlg.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="CChildDlg.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="MFCFILE01.rc">
+    <ResourceCompile Include="MFCDOG.rc">
       <Filter>리소스 파일</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\MFCFILE01.rc2">
+    <None Include="res\MFCDOG.rc2">
       <Filter>리소스 파일</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\MFC_FILE01.ico">
+    <Image Include="res\MFC_DOG.ico">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

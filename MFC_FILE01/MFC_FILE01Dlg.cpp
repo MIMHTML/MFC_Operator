@@ -40,6 +40,10 @@ BEGIN_MESSAGE_MAP(CMFCFILE01Dlg, CDialogEx)
 	ON_BN_CLICKED(IDC_ADD_BUTTON, &CMFCFILE01Dlg::OnBnClickedAddButton)
 	ON_BN_CLICKED(IDC_DELETE_BUTTON, &CMFCFILE01Dlg::OnBnClickedDeleteButton)
 	ON_BN_CLICKED(IDC_FILE_BUTTON, &CMFCFILE01Dlg::OnBnClickedFileButton)
+	ON_BN_CLICKED(IDC_FILE_NAME_BUTTON, &CMFCFILE01Dlg::OnBnClickedFileNameButton)
+	ON_BN_CLICKED(IDC_FILE_OPEN_BUTTON, &CMFCFILE01Dlg::OnBnClickedFileOpenButton)
+	ON_BN_CLICKED(IDC_CHILD_BUTTON, &CMFCFILE01Dlg::OnBnClickedChildButton)
+	ON_BN_CLICKED(IDC_IMAGE_REMOVE, &CMFCFILE01Dlg::OnBnClickedImageRemove)
 END_MESSAGE_MAP()
 
 
@@ -144,7 +148,16 @@ void CMFCFILE01Dlg::OnBnClickedImageButton()
 
 	m_image_view.GetWindowRect(rect);
 	dc = m_image_view.GetDC();
-	image.Load(_T("5.jpg"));
+
+
+
+	int random = rand() % 10;
+	CString randomStr_beforeFormat;
+	CString randomStr;
+	randomStr_beforeFormat.Format(_T("%d"), random);
+	randomStr = randomStr_beforeFormat + L"jpg"; 
+	
+	image.Load(L"5.jpg");
 	image.StretchBlt(dc->m_hDC, 0, 0, rect.Width(), rect.Height(), SRCCOPY);
 }
 
@@ -166,7 +179,6 @@ void CMFCFILE01Dlg::OnBnClickedAddButton()
 
 	// 에디트 컨트롤에 입력한 값을 리스트 컨트롤에 추가하였다면
 	// 에디트 컨트롤을 초기화 합니다.	
-
 	m_strName = _T("");
 	m_strAge = _T("");
 
@@ -191,6 +203,7 @@ void CMFCFILE01Dlg::OnBnClickedFileButton()
 {
 	CFile file;
 	std::vector<CString> vServiceTest;
+
 	for (int i = 0; i < 10; i++) {
 		vServiceTest.push_back(_T("10\n"));
 	}
@@ -200,5 +213,97 @@ void CMFCFILE01Dlg::OnBnClickedFileButton()
 	for (int i = 0; i < vServiceTest.size(); i++) {
 		file.Write(vServiceTest.at(i), vServiceTest.at(i).GetLength() * sizeof(TCHAR));
 	}
+
 	file.Close();
+
+	MessageBox(_T("Txt1.txt 파일 저장 완료"));
+}
+
+// 현재 실행된 파일 관련된 경로
+
+// File Path 
+CString GetProgramPath() {
+	CString strPath;
+	TCHAR szPath[1024];
+	GetModuleFileName(NULL, szPath, 1024);
+	strPath.Format(_T("%s"), szPath);
+	return strPath;
+}
+
+// Path
+CString GetProgramDir() {
+	CString strPath;
+	TCHAR szPath[1024];
+	GetModuleFileName(NULL, szPath, 1024);
+	strPath.Format(_T("%s"), szPath);
+	strPath = strPath.Left(strPath.ReverseFind('\\') + 1);
+	return strPath;
+};
+
+// 경로에서 파일 이름 가져오기
+CString GetFileName(CString strPath) {
+	CString strFileName;
+	strFileName = strPath.Right(strPath.GetLength() - strPath.ReverseFind('\\'));
+	return strFileName;
+}
+
+void CMFCFILE01Dlg::OnBnClickedFileNameButton()
+{
+	CString path = GetProgramPath();
+	CString dir = GetProgramDir();
+	CString name = GetFileName(path);
+
+
+		MessageBox(path);
+		MessageBox(dir);
+		MessageBox(name);
+
+		m_list.InsertItem(m_list.GetItemCount(), name, rand() % 5);
+
+		
+}
+
+
+void CMFCFILE01Dlg::OnBnClickedFileOpenButton()
+{
+	static TCHAR BASED_CODE szFilter[] = _T("이미지 파일(*.BMP, *GIF, *JPG) | *.BMP; *.GIF; *.JPG; *.bmp; *.jpg; *gif | 모든파일((*.*)|*.*||");
+	CFileDialog dlg(TRUE, _T("*.jpg"), _T("image"), OFN_HIDEREADONLY, szFilter);
+	if (IDOK == dlg.DoModal()) {
+
+			// 멤버 함수
+		/*
+			CString GetPathName() : 선택된 파일의 절대경로
+			CString GetFileName() : 선택된 파일의 이름과 확장자
+			CString GetFileExt() : 선택된 파일의 확장자
+			String GetFileTitle() : 선택된 파일의 파일명
+			BOOL GetReadOnlyPref() : 읽기전용 여부
+			POSITION GetStartPosition() : 다중 선택시 첫번째 파일의 위치
+			CString GetNextPathName() : 다중 선택시 다음 파일의 절대경로
+		*/
+		CString fileName = dlg.GetFileName();
+		MessageBox(fileName);
+		m_list.InsertItem(m_list.GetItemCount(), fileName, rand() % 5);
+
+		CRect rect;
+		CDC* dc;
+		CImage image;
+
+		m_image_view.GetWindowRect(rect);
+		dc = m_image_view.GetDC();
+		image.Load(fileName);
+		image.StretchBlt(dc->m_hDC, 0, 0, rect.Width(), rect.Height(), SRCCOPY);
+	}
+}
+
+#include "CChildDlg.h"
+void CMFCFILE01Dlg::OnBnClickedChildButton()
+{
+	CChildDlg dlg;  // CChildDlg 자식 다이얼로그 창의 클래스 객체 생성
+	dlg.DoModal();  // DoModal() 를 이용하여 창을 띄웁니다.
+}
+
+
+void CMFCFILE01Dlg::OnBnClickedImageRemove()
+{
+
 }

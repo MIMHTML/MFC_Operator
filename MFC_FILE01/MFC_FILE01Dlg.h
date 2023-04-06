@@ -39,4 +39,9 @@ public:
 	afx_msg void OnBnClickedAddButton();
 	afx_msg void OnBnClickedDeleteButton();
 	afx_msg void OnBnClickedFileButton();
+	afx_msg void OnBnClickedFileNameButton();
+	afx_msg void OnBnClickedFileOpenButton();
+	afx_msg void OnBnClickedChildButton();
+	afx_msg void OnBnClickedImageRemove();
 };
+	CString GetProgramPath();
