@@ -31,10 +31,10 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
-	CString m_puppy_breed;
-	CString m_puppy_content;
 	CString m_puppy_image_file_path;
 	afx_msg void OnBnClickedPuppyTextFileOpen();
 	afx_msg void OnBnClickedPuppyTextFileModify();
 	CStatic m_puppy_image_view;
+	CEdit m_puppy_content;
+	CEdit m_puppy_breed;
 };

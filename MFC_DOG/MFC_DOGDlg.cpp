@@ -19,8 +19,6 @@
 
 CMFCDOGDlg::CMFCDOGDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_MFC_DOG_DIALOG, pParent)
-	, m_puppy_breed(_T(""))
-	, m_puppy_content(_T(""))
 	, m_puppy_image_file_path(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -29,10 +27,10 @@ CMFCDOGDlg::CMFCDOGDlg(CWnd* pParent /*=nullptr*/)
 void CMFCDOGDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_PUPPY_BREED, m_puppy_breed);
-	DDX_Text(pDX, IDC_PUPPY_CONTENT, m_puppy_content);
 	DDX_Text(pDX, IDC_PUPPY_IMAGE_FILE_PATH, m_puppy_image_file_path);
 	DDX_Control(pDX, IDC_PUPPY_IMAGE_VIEW, m_puppy_image_view);
+	DDX_Control(pDX, IDC_PUPPY_CONTENT, m_puppy_content);
+	DDX_Control(pDX, IDC_PUPPY_BREED, m_puppy_breed);
 }
 
 BEGIN_MESSAGE_MAP(CMFCDOGDlg, CDialogEx)
