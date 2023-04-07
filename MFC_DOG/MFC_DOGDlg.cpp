@@ -106,7 +106,6 @@ void CMFCDOGDlg::OnBnClickedPuppyTextFileOpen()
 
 
 	// string을 CString형으로 변환
-
 	CString cstr;  // CString 객체 생성
 	int len = MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, NULL, 0);  // 변환할 문자열 길이 계산
 	wchar_t* wstr = new wchar_t[len];  // 변환된 문자열을 저장할 버퍼 생성
