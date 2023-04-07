@@ -13,6 +13,30 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\MediumPuppy">
+      <UniqueIdentifier>{b83711e8-4355-4ac5-be96-27204bb1496c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\LargePuppy">
+      <UniqueIdentifier>{ba5a08cf-7251-4ea5-b72a-721319bda008}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\SmallPuppy">
+      <UniqueIdentifier>{577fd97b-4cec-4c5e-9274-7b23f518bf78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\MainPuppy">
+      <UniqueIdentifier>{ea707d06-f239-4b2e-887f-c150f741bed6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\SmallPuppy">
+      <UniqueIdentifier>{904bb0e4-5434-4b9f-9792-81e958c2e4a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\MainPuppy">
+      <UniqueIdentifier>{08afef73-5f9d-49e5-ba01-056837e6c23c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\MediumPuppy">
+      <UniqueIdentifier>{3816dc5b-b48f-481b-a8d2-2520645ec512}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\LargePuppy">
+      <UniqueIdentifier>{2c3b5610-d373-41c9-a7eb-4895f1e5b71b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MFC_DOG.h">
@@ -34,7 +58,52 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Puppy.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\MainPuppy</Filter>
+    </ClInclude>
+    <ClInclude Include="Chihuahua.h">
+      <Filter>헤더 파일\SmallPuppy</Filter>
+    </ClInclude>
+    <ClInclude Include="Poodle.h">
+      <Filter>헤더 파일\SmallPuppy</Filter>
+    </ClInclude>
+    <ClInclude Include="Maltese.h">
+      <Filter>헤더 파일\SmallPuppy</Filter>
+    </ClInclude>
+    <ClInclude Include="YorkshireTerrier.h">
+      <Filter>헤더 파일\SmallPuppy</Filter>
+    </ClInclude>
+    <ClInclude Include="SmallPuppy.h">
+      <Filter>헤더 파일\SmallPuppy</Filter>
+    </ClInclude>
+    <ClInclude Include="Beagle.h">
+      <Filter>헤더 파일\MediumPuppy</Filter>
+    </ClInclude>
+    <ClInclude Include="Bulldog.h">
+      <Filter>헤더 파일\MediumPuppy</Filter>
+    </ClInclude>
+    <ClInclude Include="Sigorzavjong.h">
+      <Filter>헤더 파일\MediumPuppy</Filter>
+    </ClInclude>
+    <ClInclude Include="Shiba.h">
+      <Filter>헤더 파일\MediumPuppy</Filter>
+    </ClInclude>
+    <ClInclude Include="MediumPuppy.h">
+      <Filter>헤더 파일\MediumPuppy</Filter>
+    </ClInclude>
+    <ClInclude Include="GoldenRetriever.h">
+      <Filter>헤더 파일\LargePuppy</Filter>
+    </ClInclude>
+    <ClInclude Include="Doberman.h">
+      <Filter>헤더 파일\LargePuppy</Filter>
+    </ClInclude>
+    <ClInclude Include="Malamute.h">
+      <Filter>헤더 파일\LargePuppy</Filter>
+    </ClInclude>
+    <ClInclude Include="SiberianHusky.h">
+      <Filter>헤더 파일\LargePuppy</Filter>
+    </ClInclude>
+    <ClInclude Include="LargePuppy.h">
+      <Filter>헤더 파일\LargePuppy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -47,8 +116,53 @@
     <ClCompile Include="pch.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Maltese.cpp">
+      <Filter>소스 파일\SmallPuppy</Filter>
+    </ClCompile>
+    <ClCompile Include="Poodle.cpp">
+      <Filter>소스 파일\SmallPuppy</Filter>
+    </ClCompile>
+    <ClCompile Include="YorkshireTerrier.cpp">
+      <Filter>소스 파일\SmallPuppy</Filter>
+    </ClCompile>
+    <ClCompile Include="Shiba.cpp">
+      <Filter>소스 파일\MediumPuppy</Filter>
+    </ClCompile>
+    <ClCompile Include="Beagle.cpp">
+      <Filter>소스 파일\MediumPuppy</Filter>
+    </ClCompile>
+    <ClCompile Include="MediumPuppy.cpp">
+      <Filter>소스 파일\MediumPuppy</Filter>
+    </ClCompile>
+    <ClCompile Include="SmallPuppy.cpp">
+      <Filter>소스 파일\SmallPuppy</Filter>
+    </ClCompile>
+    <ClCompile Include="Chihuahua.cpp">
+      <Filter>소스 파일\SmallPuppy</Filter>
+    </ClCompile>
+    <ClCompile Include="Sigorzavjong.cpp">
+      <Filter>소스 파일\MediumPuppy</Filter>
+    </ClCompile>
+    <ClCompile Include="Doberman.cpp">
+      <Filter>소스 파일\LargePuppy</Filter>
+    </ClCompile>
+    <ClCompile Include="GoldenRetriever.cpp">
+      <Filter>소스 파일\LargePuppy</Filter>
+    </ClCompile>
+    <ClCompile Include="Malamute.cpp">
+      <Filter>소스 파일\LargePuppy</Filter>
+    </ClCompile>
+    <ClCompile Include="SiberianHusky.cpp">
+      <Filter>소스 파일\LargePuppy</Filter>
+    </ClCompile>
+    <ClCompile Include="Bulldog.cpp">
+      <Filter>소스 파일\MediumPuppy</Filter>
+    </ClCompile>
+    <ClCompile Include="LargePuppy.cpp">
+      <Filter>소스 파일\LargePuppy</Filter>
+    </ClCompile>
     <ClCompile Include="Puppy.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\MainPuppy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

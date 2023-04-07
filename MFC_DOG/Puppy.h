@@ -1,9 +1,11 @@
 #pragma once
 
+
 #ifndef PUPPY
 #define PUPPY           
 #endif
 
+#include "pch.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -11,31 +13,35 @@
 class Puppy
 {
 private:
-	std::string breed;
-	std::string color;
-	std::string size;
-	std::string howl;
-	std::string speed;
+	CString breed;
+	CString color;
+	CString size;
+	CString howl;
+	CString speed;
 
 public:
-	void setBreed(std::string breed) { this->breed = breed; }
-	std::string getBreed() const { return breed; }
+
+	Puppy();
+	virtual ~Puppy();
+
+	void setBreed(CString breed) { this->breed = breed; }
+	CString getBreed() const { return breed; }
 	
-	void setColor(std::string color) { this->color = color; }
-	std::string getColor() const { return color; }
+	void setColor(CString color) { this->color = color; }
+	CString getColor() const { return color; }
 
-	void setSize(std::string size) { this->size = size; }
-	std::string getSize() const { return size; }
+	void setSize(CString size) { this->size = size; }
+	CString getSize() const { return size; }
 
-	void setHowl(std::string howl) { this->howl = howl; }
-	std::string getHowl() const { return howl; }
+	void setHowl(CString howl) { this->howl = howl; }
+	CString getHowl() const { return howl; }
 
-	void setSpeed(std::string speed) { this->speed = speed; }
-	std::string getSpeed() const { return speed; }
+	void setSpeed(CString speed) { this->speed = speed; }
+	CString getSpeed() const { return speed; }
 
-	virtual void characteristic();
-	virtual void howlSound();
-	virtual void runningSpeed();
+	virtual CString displayPuppy();
+	virtual CString characteristic();
+	virtual CString howlSound();
+	virtual CString runningSpeed();
 
-
-};
+};	// class Puppy

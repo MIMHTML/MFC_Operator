@@ -1,16 +1,18 @@
-#include "pch.h"
 #include "Puppy.h"
 
-int amin() {
-	return 0;
+
+Puppy::Puppy() {}
+Puppy::~Puppy() {}
+
+CString Puppy::displayPuppy() {
+	return _T("°­¾ÆÁö´Â ±Í¿±´Ù.");
 }
-
-void Puppy::characteristic() {
-
+CString Puppy::characteristic() {
+	return _T("°­¾ÆÁö´Â ±Í¿±´Ù.");
 }
-void Puppy::howlSound() {
-
+CString Puppy::howlSound() {
+	return _T("°­¾ÆÁö´Â ¸Û¸Û");
 }
-void Puppy::runningSpeed() {
-
+CString Puppy::runningSpeed() {
+	return _T("´Þ¸®´Â °­¾ÆÁö");
 }
