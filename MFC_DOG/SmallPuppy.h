@@ -10,6 +10,7 @@ public:
 	SmallPuppy();
 	virtual ~SmallPuppy();
 
+	
 
 	virtual CString displayPuppy() = 0;
 	virtual CString characteristic() = 0;

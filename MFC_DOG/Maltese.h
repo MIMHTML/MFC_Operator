@@ -13,6 +13,7 @@ public:
 	Maltese();
 	~Maltese();
 
+
 	CString displayPuppy();
 	CString characteristic();
 	CString howlSound();
