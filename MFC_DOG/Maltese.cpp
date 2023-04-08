@@ -14,6 +14,7 @@ Maltese Maltese::setMaltese() {
 	return puppy;
 }
 
+
 CString Maltese::displayPuppy() {
 	CString displayPuppy = _T("Ç°Á¾ : " + puppy.getBreed()
 							+ "\r\n»ö±ò : " + puppy.getColor()

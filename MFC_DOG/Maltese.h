@@ -17,6 +17,7 @@ public:
 	
 	Maltese setMaltese();
 
+
 	CString displayPuppy();
 	CString personality();
 	CString characteristic();
