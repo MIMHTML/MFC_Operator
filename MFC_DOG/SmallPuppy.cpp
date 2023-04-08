@@ -1,5 +1,5 @@
 #include "SmallPuppy.h"
 
-SmallPuppy::SmallPuppy() {}
+SmallPuppy::SmallPuppy() : Puppy::Puppy() {}
 SmallPuppy::~SmallPuppy() {}
 

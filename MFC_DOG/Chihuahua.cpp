@@ -1,12 +1,7 @@
 #include "Chihuahua.h"
 
 Chihuahua::Chihuahua(){
-	Puppy* puppy = new Chihuahua();
-	puppy->setBreed(_T("Ä¡¿Í¿Í"));
-	puppy->setColor(_T(""));
-	puppy->setSize(_T(""));
-	puppy->setHowl(_T(""));
-	puppy->setSpeed(_T(""));
+	
 }
 Chihuahua::~Chihuahua(){}
 

@@ -96,13 +96,9 @@ HCURSOR CMFCDOGDlg::OnQueryDragIcon()
 }
 
 
-#include "Maltese.h"
 void CMFCDOGDlg::OnBnClickedPuppySearchBtn()
 {
-	Maltese* pp = (Maltese*)new Puppy();
-	pp->setBreed(_T("말티즈"));
-	CString str = pp->getBreed();
-
+	Puppy puppy;
 
 	CString searchData = _T("");
 	// Edit Control의 값을 가져와서 searchData 변수에 대입
@@ -111,32 +107,51 @@ void CMFCDOGDlg::OnBnClickedPuppySearchBtn()
 
 	// Edit Control에 입력된 값이 있다면
 	if (searchData.IsEmpty() == false) {
+
+		// 각 함수의 리턴 데이터를 담을 변수
+		CString puppyDisplay;
+		CString puppyCharacteristic;
+		CString howlSound;
+		CString runningSpeed;
+		CString imageName;
+
+		// 검색 데이터에 맞는 객체 생성
+		if (searchData == _T("말티즈")) {
+			Maltese maltese = maltese.setMaltese();
+			puppy = maltese;
+			puppyDisplay = maltese.displayPuppy();
+			puppyCharacteristic = maltese.characteristic();
+			imageName = _T("말티즈.jpg");
+		}
+		else if (searchData == _T("말라뮤트")) {
+		
+		}
 		
 		// 현재 ListBox에서 선택된 아이템의 인덱스를 받아오기
 		int nCurSel = m_puppy_content.GetCurSel();
 
-		m_puppy_content.AddString(searchData);
-		m_puppy_content.InsertString(nCurSel, str);
+		m_puppy_content.AddString(_T("'") + searchData + "' 을 검색하셨습니다.");
+	
+		m_puppy_content.InsertString(nCurSel, puppyDisplay);
+		m_puppy_content.InsertString(nCurSel, puppyCharacteristic);
 
-		
 		// Edit Control 문자열 지우기
 		m_puppy_search_bar.SetWindowTextW(_T(""));
+
+		// 이미지 출력하기
+		CRect rect;
+		CDC* dc;
+		CImage image;
+
+		m_puppy_image_view.GetWindowRect(rect);
+		dc = m_puppy_image_view.GetDC();
+		image.Load(imageName);
+		image.StretchBlt(dc->m_hDC, 0, 0, rect.Width(), rect.Height(), SRCCOPY);
 	}
 }
 
-#include "Maltese.h" 
 void CMFCDOGDlg::OnBnClickedPuppyTextFileOpen()
 {
-	Maltese* pp = (Maltese*)new Puppy();
-	pp->setBreed(_T("말티즈"));
-	CString str = pp->getBreed();
-	MessageBox(str);
-
-	Maltese* pp2 = new Maltese();
-	MessageBox(pp2->displayPuppy());
-
-	delete pp;
-
 
 }
 

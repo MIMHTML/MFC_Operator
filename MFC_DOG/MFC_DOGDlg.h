@@ -1,4 +1,5 @@
-﻿#include "Puppy.h"
+﻿#include "PuppyReference.h"
+
 
 // MFC_DOGDlg.h: 헤더 파일
 //

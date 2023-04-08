@@ -198,6 +198,7 @@
     <ClInclude Include="MFC_DOG.h" />
     <ClInclude Include="MFC_DOGDlg.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PuppyReference.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Shiba.h" />
     <ClInclude Include="SiberianHusky.h" />

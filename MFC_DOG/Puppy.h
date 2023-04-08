@@ -10,6 +10,7 @@
 #include <string>
 #include <vector>
 
+
 class Puppy
 {
 private:
@@ -39,9 +40,7 @@ public:
 	void setSpeed(CString speed) { this->speed = speed; }
 	CString getSpeed() const { return speed; }
 
-	virtual CString displayPuppy();
+	virtual CString personality();
 	virtual CString characteristic();
-	virtual CString howlSound();
-	virtual CString runningSpeed();
 
 };	// class Puppy

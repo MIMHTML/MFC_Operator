@@ -10,14 +10,8 @@ public:
 	SmallPuppy();
 	virtual ~SmallPuppy();
 
-	void setBreed(CString breed) { this->setBreed(breed); }
-	CString getBreed() const { return this->getBreed(); }
-
-
-	virtual CString displayPuppy() = 0;
-	virtual CString characteristic() = 0;
-	virtual CString howlSound() = 0;
-	virtual CString runningSpeed() = 0;
-private:
+	virtual CString personality()=0;
+	virtual CString characteristic()=0;
+	virtual CString displayPuppy()=0;
 
 }; // class SmallPuppy : public Puppy

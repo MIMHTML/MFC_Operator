@@ -7,17 +7,19 @@
 #endif
 
 
+
 class Maltese : public SmallPuppy
 {
 public:
+
 	Maltese();
 	~Maltese();
+	
+	Maltese setMaltese();
 
 	CString displayPuppy();
+	CString personality();
 	CString characteristic();
-	CString howlSound();
-	CString runningSpeed();
-private:
 
 }; // class Maltese : public SmallPuppy
 

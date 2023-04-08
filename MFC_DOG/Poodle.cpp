@@ -3,12 +3,6 @@
 
 
 Poodle::Poodle() {
-	Puppy* puppy = new Poodle();
-	puppy->setBreed(_T("Çªµé"));
-	puppy->setColor(_T(""));
-	puppy->setSize(_T(""));
-	puppy->setHowl(_T(""));
-	puppy->setSpeed(_T(""));
 }
 
 Poodle::~Poodle() {}

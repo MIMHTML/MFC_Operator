@@ -2,12 +2,7 @@
 
 
 YorkshireTerrier::YorkshireTerrier() {
-	Puppy* puppy = new YorkshireTerrier();
-	puppy->setBreed(_T("요크셔테리어"));
-	puppy->setColor(_T(""));
-	puppy->setSize(_T(""));
-	puppy->setHowl(_T(""));
-	puppy->setSpeed(_T(""));
+
 }
 YorkshireTerrier::~YorkshireTerrier() {}
 

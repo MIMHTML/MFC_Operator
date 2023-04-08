@@ -17,6 +17,5 @@ public:
 	CString characteristic();
 	CString howlSound();
 	CString runningSpeed();
-private:
 
 }; // class YorkshireTerrier : public SmallPuppy

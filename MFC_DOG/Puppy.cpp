@@ -4,15 +4,10 @@
 Puppy::Puppy() {}
 Puppy::~Puppy() {}
 
-CString Puppy::displayPuppy() {
-	return _T("°­¾ÆÁö´Â ±Í¿±´Ù.");
+CString Puppy::personality() {
+	return _T("");
 }
+
 CString Puppy::characteristic() {
-	return _T("°­¾ÆÁö´Â ±Í¿±´Ù.");
-}
-CString Puppy::howlSound() {
-	return _T("°­¾ÆÁö´Â ¸Û¸Û");
-}
-CString Puppy::runningSpeed() {
-	return _T("´Þ¸®´Â °­¾ÆÁö");
+	return _T("");
 }

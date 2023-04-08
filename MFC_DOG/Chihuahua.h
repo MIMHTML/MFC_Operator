@@ -16,6 +16,5 @@ public:
 	CString characteristic();
 	CString howlSound();
 	CString runningSpeed();
-private:
 
 }; // class Chihuahua : public SmallPuppy
