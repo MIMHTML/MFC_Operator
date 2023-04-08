@@ -1,4 +1,5 @@
-﻿
+﻿#include "Puppy.h"
+
 // MFC_DOGDlg.h: 헤더 파일
 //
 
@@ -31,10 +32,12 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
-	CString m_puppy_image_file_path;
 	afx_msg void OnBnClickedPuppyTextFileOpen();
 	afx_msg void OnBnClickedPuppyTextFileModify();
+	afx_msg void OnBnClickedPuppySearchBtn();
+	CString m_puppy_image_file_path;
 	CStatic m_puppy_image_view;
-	CEdit m_puppy_content;
 	CEdit m_puppy_breed;
+	CEdit m_puppy_search_bar;
+	CListBox m_puppy_content;
 };

@@ -29,15 +29,17 @@ void CMFCDOGDlg::DoDataExchange(CDataExchange* pDX)
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_PUPPY_IMAGE_FILE_PATH, m_puppy_image_file_path);
 	DDX_Control(pDX, IDC_PUPPY_IMAGE_VIEW, m_puppy_image_view);
-	DDX_Control(pDX, IDC_PUPPY_CONTENT, m_puppy_content);
 	DDX_Control(pDX, IDC_PUPPY_BREED, m_puppy_breed);
+	DDX_Control(pDX, IDC_PUPPY_SEARCH_BAR, m_puppy_search_bar);
+	DDX_Control(pDX, IDC_PUPPY_CONTENT, m_puppy_content);
 }
 
 BEGIN_MESSAGE_MAP(CMFCDOGDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_PUPPY_TEXT_FILE_OPEN, &CMFCDOGDlg::OnBnClickedPuppyTextFileOpen)
-	ON_BN_CLICKED(IDC_PUPPY_TEXT_FILE_MODIFY, &CMFCDOGDlg::OnBnClickedPuppyTextFileModify)
+	ON_BN_CLICKED(IDC_PUPPY_TEXT_FILE_OPEN_BTN, &CMFCDOGDlg::OnBnClickedPuppyTextFileOpen)
+	ON_BN_CLICKED(IDC_PUPPY_TEXT_FILE_MODIFY_BTN, &CMFCDOGDlg::OnBnClickedPuppyTextFileModify)
+	ON_BN_CLICKED(IDC_PUPPY_SEARCH_BTN, &CMFCDOGDlg::OnBnClickedPuppySearchBtn)
 END_MESSAGE_MAP()
 
 
@@ -94,27 +96,52 @@ HCURSOR CMFCDOGDlg::OnQueryDragIcon()
 }
 
 
-
-void CMFCDOGDlg::OnBnClickedPuppyTextFileOpen()
+#include "Maltese.h"
+void CMFCDOGDlg::OnBnClickedPuppySearchBtn()
 {
-	CStringArray puppuContentArray;
+	Maltese* pp = (Maltese*)new Puppy();
+	pp->setBreed(_T("말티즈"));
+	CString str = pp->getBreed();
 
-	CListBox* pPuppyContentListBox = (CListBox*)GetDlgItem(IDC_PUPPY_CONTENT);
-	
-	CString newString = _T("새로운 문자열");
-	puppuContentArray.Add(newString);
 
-	for (int i = 0; i < puppuContentArray.GetSize(); i++) {
-		pPuppyContentListBox->AddString(puppuContentArray[i]);
+	CString searchData = _T("");
+	// Edit Control의 값을 가져와서 searchData 변수에 대입
+	m_puppy_search_bar.GetWindowTextW(searchData);
+	MessageBox(searchData);
+
+	// Edit Control에 입력된 값이 있다면
+	if (searchData.IsEmpty() == false) {
+		
+		// 현재 ListBox에서 선택된 아이템의 인덱스를 받아오기
+		int nCurSel = m_puppy_content.GetCurSel();
+
+		m_puppy_content.AddString(searchData);
+		m_puppy_content.InsertString(nCurSel, str);
+
+		
+		// Edit Control 문자열 지우기
+		m_puppy_search_bar.SetWindowTextW(_T(""));
 	}
-	pPuppyContentListBox->AddString(_T("새로운 문자열"));
-
-
-	MessageBox(puppuContentArray[0]);
 }
 
+#include "Maltese.h" 
+void CMFCDOGDlg::OnBnClickedPuppyTextFileOpen()
+{
+	Maltese* pp = (Maltese*)new Puppy();
+	pp->setBreed(_T("말티즈"));
+	CString str = pp->getBreed();
+	MessageBox(str);
+
+	Maltese* pp2 = new Maltese();
+	MessageBox(pp2->displayPuppy());
+
+	delete pp;
+
+
+}
 
 void CMFCDOGDlg::OnBnClickedPuppyTextFileModify()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 }
+
