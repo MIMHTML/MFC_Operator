@@ -99,9 +99,8 @@ HCURSOR CMFCDOGDlg::OnQueryDragIcon()
 #include "Maltese.h"
 void CMFCDOGDlg::OnBnClickedPuppySearchBtn()
 {
-	Maltese* pp = (Maltese*)new Puppy();
-	pp->setBreed(_T("말티즈"));
-	CString str = pp->getBreed();
+	Maltese* maltese = new Maltese();
+	CString str = maltese->getBreed();
 
 
 	CString searchData = _T("");
@@ -115,7 +114,10 @@ void CMFCDOGDlg::OnBnClickedPuppySearchBtn()
 		// 현재 ListBox에서 선택된 아이템의 인덱스를 받아오기
 		int nCurSel = m_puppy_content.GetCurSel();
 
-		m_puppy_content.AddString(searchData);
+		m_puppy_content.AddString(_T("'") + searchData + "' 를 검색하셨습니다.");
+		m_puppy_content.InsertString(nCurSel, str);
+		m_puppy_content.InsertString(nCurSel, str);
+		m_puppy_content.InsertString(nCurSel, str);
 		m_puppy_content.InsertString(nCurSel, str);
 
 		
