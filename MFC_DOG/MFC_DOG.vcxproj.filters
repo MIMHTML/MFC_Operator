@@ -105,6 +105,12 @@
     <ClInclude Include="LargePuppy.h">
       <Filter>헤더 파일\LargePuppy</Filter>
     </ClInclude>
+    <ClInclude Include="PuppyReference.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CChildPuppy.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MFC_DOG.cpp">
@@ -163,6 +169,9 @@
     </ClCompile>
     <ClCompile Include="Puppy.cpp">
       <Filter>소스 파일\MainPuppy</Filter>
+    </ClCompile>
+    <ClCompile Include="CChildPuppy.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

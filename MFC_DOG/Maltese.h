@@ -15,7 +15,7 @@ public:
 	Maltese();
 	~Maltese();
 	
-	Maltese setMaltese();
+	Maltese setPuppy();
 
 
 	CString displayPuppy();

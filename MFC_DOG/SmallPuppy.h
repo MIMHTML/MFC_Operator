@@ -10,8 +10,7 @@ public:
 	SmallPuppy();
 	virtual ~SmallPuppy();
 
-	virtual CString personality()=0;
-	virtual CString characteristic()=0;
+
 	virtual CString displayPuppy()=0;
 
 }; // class SmallPuppy : public Puppy

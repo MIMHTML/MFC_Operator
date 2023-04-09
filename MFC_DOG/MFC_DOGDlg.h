@@ -40,5 +40,6 @@ public:
 	CStatic m_puppy_image_view;
 	CEdit m_puppy_breed;
 	CEdit m_puppy_search_bar;
-	CListBox m_puppy_content;
+	CEdit m_puppy_content;
+	CEdit m_puppy_file_path;
 };

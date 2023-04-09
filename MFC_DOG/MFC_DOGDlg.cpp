@@ -32,6 +32,7 @@ void CMFCDOGDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_PUPPY_BREED, m_puppy_breed);
 	DDX_Control(pDX, IDC_PUPPY_SEARCH_BAR, m_puppy_search_bar);
 	DDX_Control(pDX, IDC_PUPPY_CONTENT, m_puppy_content);
+	DDX_Control(pDX, IDC_PUPPY_IMAGE_FILE_PATH, m_puppy_file_path);
 }
 
 BEGIN_MESSAGE_MAP(CMFCDOGDlg, CDialogEx)
@@ -96,67 +97,128 @@ HCURSOR CMFCDOGDlg::OnQueryDragIcon()
 }
 
 
+
 void CMFCDOGDlg::OnBnClickedPuppySearchBtn()
 {
 	Puppy puppy;
-
+	CFile file;
+	CFileException e;
 	CString searchData = _T("");
+
+	// 각 함수의 리턴 데이터를 담을 변수
+	CString displayPuppy;
+	CString puppyCharacteristic;
+	CString howlSound;
+	CString runningSpeed;
+	CString imageName;
+	CString fileName;
+
 	// Edit Control의 값을 가져와서 searchData 변수에 대입
 	m_puppy_search_bar.GetWindowTextW(searchData);
-	MessageBox(searchData);
 
 	// Edit Control에 입력된 값이 있다면
 	if (searchData.IsEmpty() == false) {
-
-		// 각 함수의 리턴 데이터를 담을 변수
-		CString puppyDisplay;
-		CString puppyCharacteristic;
-		CString howlSound;
-		CString runningSpeed;
-		CString imageName;
-
-		// 검색 데이터에 맞는 객체 생성
-		if (searchData == _T("말티즈")) {
-			Maltese maltese = maltese.setMaltese();
-			puppy = maltese;
-			puppyDisplay = maltese.displayPuppy();
-			puppyCharacteristic = maltese.characteristic();
-			imageName = _T("말티즈.jpg");
-		}
-		else if (searchData == _T("말라뮤트")) {
-		
-		}
-		
-		// 현재 ListBox에서 선택된 아이템의 인덱스를 받아오기
-		int nCurSel = m_puppy_content.GetCurSel();
-
-		m_puppy_content.AddString(_T("'") + searchData + "' 을 검색하셨습니다.");
 	
-		m_puppy_content.InsertString(nCurSel, puppyDisplay);
-		m_puppy_content.InsertString(nCurSel, puppyCharacteristic);
+		// search data에 맞는 객체 생성
+		if (searchData == _T("말티즈")) {
+			Maltese puppyData = puppyData.setPuppy();
+			puppy = puppyData;
+			displayPuppy = puppyData.displayPuppy();
+			puppyCharacteristic = puppyData.characteristic();
+			imageName = _T("말티즈.jpg");
+			fileName = _T("말티즈.txt");
+		}
+		else if (searchData == _T("치와와")) {
+			Chihuahua puppyData = puppyData.setPuppy();
+			puppy = puppyData;
+			displayPuppy = puppyData.displayPuppy();
+			puppyCharacteristic = puppyData.characteristic();
+			imageName = _T("치와와.jpg");
+			fileName = _T("치와와.txt");
+		}
+		else {
+			searchData = _T("검색 결과가 없습니다.");
+			imageName = _T("재입력.png");
+			fileName = _T("재입력.txt");
+			puppyCharacteristic = puppy.characteristic();
+		}
 
-		// Edit Control 문자열 지우기
-		m_puppy_search_bar.SetWindowTextW(_T(""));
+
+		// breed edit control에 breed 표시
+		m_puppy_breed.SetWindowTextW(searchData);
+		
+		// content edit control에 내용 출력
+		m_puppy_content.SetWindowTextW(displayPuppy + puppyCharacteristic);
+
+
+		// 파일 열기 (파일 없을시 생성)
+		if (!file.Open(fileName, CFile::modeReadWrite 
+			| CFile::modeCreate | CFile::modeNoTruncate, &e)) {
+			e.ReportError();
+		}
+
+			CEdit* pEdit = (CEdit*)GetDlgItem(IDC_PUPPY_CONTENT);
+			CString content;
+			pEdit->GetWindowTextW(content);
+
+			const wchar_t bom = 0xFEFF; // UTF-16 Little Endian BOM
+			file.Write(&bom, sizeof(bom));
+			file.Write(content, content.GetLength() * sizeof(wchar_t));
+
+			// 문자열 마지막에 널 문자(null character) 추가
+			const wchar_t nullchar = L'\0';
+			file.Write(&nullchar, sizeof(nullchar));
+
+			file.Close();
 
 		// 이미지 출력하기
 		CRect rect;
 		CDC* dc;
 		CImage image;
+		CFileDialog dlg(TRUE, _T("*.jpg"), _T("image"), OFN_HIDEREADONLY, NULL);
 
 		m_puppy_image_view.GetWindowRect(rect);
 		dc = m_puppy_image_view.GetDC();
 		image.Load(imageName);
 		image.StretchBlt(dc->m_hDC, 0, 0, rect.Width(), rect.Height(), SRCCOPY);
+
+		m_puppy_file_path.SetWindowTextW(dlg.GetPathName());
+
+
+		// Edit Control 문자열 지우기
+		m_puppy_search_bar.SetWindowTextW(_T(""));
 	}
 }
 
 void CMFCDOGDlg::OnBnClickedPuppyTextFileOpen()
 {
+	static TCHAR BASED_CODE szFilter[] = _T("이미지 파일(*.BMP, *GIF, *JPG) | *.BMP; *.GIF; *.JPG; *.bmp; *.jpg; *gif | 모든파일((*.*)|*.*||");
+	CFileDialog dlg(TRUE, _T("*.jpg"), _T("image"), OFN_HIDEREADONLY, szFilter);
+	if (IDOK == dlg.DoModal()) {
 
+		// 멤버 함수
+	/*
+		CString GetPathName() : 선택된 파일의 절대경로
+		CString GetFileName() : 선택된 파일의 이름과 확장자
+		CString GetFileExt() : 선택된 파일의 확장자
+		String GetFileTitle() : 선택된 파일의 파일명
+		BOOL GetReadOnlyPref() : 읽기전용 여부
+		POSITION GetStartPosition() : 다중 선택시 첫번째 파일의 위치
+		CString GetNextPathName() : 다중 선택시 다음 파일의 절대경로
+	*/
+		CString fileName = dlg.GetPathName();
+		m_puppy_file_path.SetWindowTextW(fileName);
+
+
+	}
 }
 
 void CMFCDOGDlg::OnBnClickedPuppyTextFileModify()
 {
-	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	CChildPuppy dlg;  // CChildDlg 자식 다이얼로그 창의 클래스 객체 생성 
+
+	dlg.DoModal();  // DoModal() 를 이용하여 창을 띄웁니다. 
+
+
 }
 

@@ -185,6 +185,7 @@
   <ItemGroup>
     <ClInclude Include="Beagle.h" />
     <ClInclude Include="Bulldog.h" />
+    <ClInclude Include="CChildPuppy.h" />
     <ClInclude Include="Chihuahua.h" />
     <ClInclude Include="Doberman.h" />
     <ClInclude Include="GoldenRetriever.h" />
@@ -208,6 +209,7 @@
     <ClInclude Include="YorkshireTerrier.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CChildPuppy.cpp" />
     <ClCompile Include="LargePuppy.cpp" />
     <ClCompile Include="MediumPuppy.cpp" />
     <ClCompile Include="Beagle.cpp" />

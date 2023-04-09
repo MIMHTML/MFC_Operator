@@ -12,9 +12,9 @@ public:
 	Chihuahua();
 	~Chihuahua();
 
+	Chihuahua setPuppy();
 	CString displayPuppy();
+	CString personality();
 	CString characteristic();
-	CString howlSound();
-	CString runningSpeed();
 
 }; // class Chihuahua : public SmallPuppy
