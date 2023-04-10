@@ -1,5 +1,7 @@
 ﻿#pragma once
 #include "afxdialogex.h"
+#include "Puppy.h"
+#include "PuppyReference.h"
 
 
 // CChildPuppy 대화 상자
@@ -26,4 +28,9 @@ public:
 	CEdit m_modify_content;
 	CEdit m_modify_breed;
 	afx_msg void OnBnClickedModifyButton();
+	virtual BOOL OnInitDialog();
+	CString m_modify_content_value;
+
+	void setBreed(CString, CString);
+	CString m_modify_breed_value;
 };

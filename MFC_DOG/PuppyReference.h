@@ -1,4 +1,6 @@
 #include "Puppy.h"
+#include "CChildPuppy.h"
 #include "Maltese.h"
 #include "Chihuahua.h"
-#include "CChildPuppy.h"
+#include "Poodle.h"
+#include "YorkshireTerrier.h"

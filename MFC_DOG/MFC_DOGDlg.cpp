@@ -136,6 +136,22 @@ void CMFCDOGDlg::OnBnClickedPuppySearchBtn()
 			imageName = _T("치와와.jpg");
 			fileName = _T("치와와.txt");
 		}
+		else if (searchData == _T("푸들")) {
+			Poodle puppyData = puppyData.setPuppy();
+			puppy = puppyData;
+			displayPuppy = puppyData.displayPuppy();
+			puppyCharacteristic = puppyData.characteristic();
+			imageName = _T("푸들.jpg");
+			fileName = _T("푸들.txt");
+		}
+		else if (searchData == _T("요크셔테리어")) {
+			Poodle puppyData = puppyData.setPuppy();
+			puppy = puppyData;
+			displayPuppy = puppyData.displayPuppy();
+			puppyCharacteristic = puppyData.characteristic();
+			imageName = _T("요크셔테리어.jpg");
+			fileName = _T("요크셔테리어.txt");
+		}
 		else {
 			searchData = _T("검색 결과가 없습니다.");
 			imageName = _T("재입력.png");
@@ -143,13 +159,11 @@ void CMFCDOGDlg::OnBnClickedPuppySearchBtn()
 			puppyCharacteristic = puppy.characteristic();
 		}
 
-
-		// breed edit control에 breed 표시
+		// breed edit control에 breed 출력
 		m_puppy_breed.SetWindowTextW(searchData);
 		
-		// content edit control에 내용 출력
+		// content edit control에 content 출력
 		m_puppy_content.SetWindowTextW(displayPuppy + puppyCharacteristic);
-
 
 		// 파일 열기 (파일 없을시 생성)
 		if (!file.Open(fileName, CFile::modeReadWrite 
@@ -161,6 +175,7 @@ void CMFCDOGDlg::OnBnClickedPuppySearchBtn()
 			CString content;
 			pEdit->GetWindowTextW(content);
 
+			// UTF-16 인코딩하여 내용 저장
 			const wchar_t bom = 0xFEFF; // UTF-16 Little Endian BOM
 			file.Write(&bom, sizeof(bom));
 			file.Write(content, content.GetLength() * sizeof(wchar_t));
@@ -209,16 +224,51 @@ void CMFCDOGDlg::OnBnClickedPuppyTextFileOpen()
 		CString fileName = dlg.GetPathName();
 		m_puppy_file_path.SetWindowTextW(fileName);
 
+		// 이미지 출력하기
+		CRect rect;
+		CDC* dc;
+		CImage image;
 
+		m_puppy_image_view.GetWindowRect(rect);
+		dc = m_puppy_image_view.GetDC();
+		image.Load(dlg.GetFileName());
+		image.StretchBlt(dc->m_hDC, 0, 0, rect.Width(), rect.Height(), SRCCOPY);
+
+		// 텍스트 파일 열기
+		CString strFileName = dlg.GetFileTitle()+_T(".txt");
+
+		// 파일 열기 모드로 CFile 객체를 생성합니다.
+		CFile file(strFileName, CFile::modeRead | CFile::shareDenyWrite);
+
+		// 파일 크기를 가져와 CString 객체를 생성합니다.
+		ULONGLONG nFileSize = file.GetLength();
+		CString strFileContent;
+		strFileContent.Preallocate(nFileSize);
+
+		// 파일 내용을 CString 객체에 저장합니다.
+		file.Read(strFileContent.GetBuffer(nFileSize), nFileSize);
+		strFileContent.ReleaseBuffer();
+
+		// edit 컨트롤의 핸들을 가져옵니다.
+		CWnd* pWnd = GetDlgItem(IDC_PUPPY_CONTENT); // IDC_EDIT은 edit 컨트롤의 ID입니다.
+		if (pWnd != NULL)
+		{
+			// 핸들을 이용하여 edit 컨트롤에 파일 내용을 출력합니다.
+			pWnd->SetWindowText(strFileContent);
+			m_puppy_breed.SetWindowTextW(dlg.GetFileTitle());
+		}
 	}
 }
 
 void CMFCDOGDlg::OnBnClickedPuppyTextFileModify()
 {
 	CChildPuppy dlg;  // CChildDlg 자식 다이얼로그 창의 클래스 객체 생성 
+	CString breed;
+	CString content;
+	GetDlgItemTextW(IDC_PUPPY_BREED, breed);
+	GetDlgItemTextW(IDC_PUPPY_CONTENT, content);
+	dlg.setBreed(breed, content);
 
 	dlg.DoModal();  // DoModal() 를 이용하여 창을 띄웁니다. 
-
-
 }
 

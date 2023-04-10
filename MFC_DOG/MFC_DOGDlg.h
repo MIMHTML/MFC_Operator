@@ -42,4 +42,5 @@ public:
 	CEdit m_puppy_search_bar;
 	CEdit m_puppy_content;
 	CEdit m_puppy_file_path;
+	
 };

@@ -1,5 +1,5 @@
 #include "Maltese.h"
-Maltese::Maltese() : SmallPuppy::SmallPuppy() {}
+Maltese::Maltese() {}
 Maltese::~Maltese() {}
 
 Maltese puppy;
@@ -9,7 +9,7 @@ Maltese Maltese::setPuppy() {
 	puppy.setColor(_T("Èò»ö"));
 	puppy.setSize(_T("¼ÒÇü"));
 	puppy.setHowl(_T("¸Û¸Û"));
-	puppy.setSpeed(_T("È£´Ù´Ú"));
+	puppy.setSpeed(_T("ºü¸£´Ù"));
 
 	return puppy;
 }

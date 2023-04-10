@@ -16,8 +16,6 @@ public:
 	~Maltese();
 	
 	Maltese setPuppy();
-
-
 	CString displayPuppy();
 	CString personality();
 	CString characteristic();

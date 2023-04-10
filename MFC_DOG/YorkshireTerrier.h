@@ -13,9 +13,9 @@ public:
 	YorkshireTerrier();
 	~YorkshireTerrier();
 
+	YorkshireTerrier setPuppy();
 	CString displayPuppy();
+	CString personality();
 	CString characteristic();
-	CString howlSound();
-	CString runningSpeed();
 
 }; // class YorkshireTerrier : public SmallPuppy
