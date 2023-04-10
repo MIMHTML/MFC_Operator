@@ -101,18 +101,14 @@ HCURSOR CMFCDOGDlg::OnQueryDragIcon()
 void CMFCDOGDlg::OnBnClickedPuppySearchBtn()
 {
 	Puppy puppy;
-	CFile file;
-	CFileException e;
-	CString searchData = _T("");
 
 	// 각 함수의 리턴 데이터를 담을 변수
 	CString displayPuppy;
 	CString puppyCharacteristic;
-	CString howlSound;
-	CString runningSpeed;
 	CString imageName;
 	CString fileName;
 
+	CString searchData = _T("");
 	// Edit Control의 값을 가져와서 searchData 변수에 대입
 	m_puppy_search_bar.GetWindowTextW(searchData);
 
@@ -145,7 +141,7 @@ void CMFCDOGDlg::OnBnClickedPuppySearchBtn()
 			fileName = _T("푸들.txt");
 		}
 		else if (searchData == _T("요크셔테리어")) {
-			Poodle puppyData = puppyData.setPuppy();
+			YorkshireTerrier puppyData = puppyData.setPuppy();
 			puppy = puppyData;
 			displayPuppy = puppyData.displayPuppy();
 			puppyCharacteristic = puppyData.characteristic();
@@ -166,39 +162,40 @@ void CMFCDOGDlg::OnBnClickedPuppySearchBtn()
 		m_puppy_content.SetWindowTextW(displayPuppy + puppyCharacteristic);
 
 		// 파일 열기 (파일 없을시 생성)
+		CFile file;
+		CFileException e;
+
 		if (!file.Open(fileName, CFile::modeReadWrite 
 			| CFile::modeCreate | CFile::modeNoTruncate, &e)) {
 			e.ReportError();
 		}
 
-			CEdit* pEdit = (CEdit*)GetDlgItem(IDC_PUPPY_CONTENT);
-			CString content;
-			pEdit->GetWindowTextW(content);
+		CEdit* pEdit = (CEdit*)GetDlgItem(IDC_PUPPY_CONTENT);
+		CString content;
+		pEdit->GetWindowTextW(content);
 
-			// UTF-16 인코딩하여 내용 저장
-			const wchar_t bom = 0xFEFF; // UTF-16 Little Endian BOM
-			file.Write(&bom, sizeof(bom));
-			file.Write(content, content.GetLength() * sizeof(wchar_t));
+		// UTF-16 인코딩하여 내용 저장
+		const TCHAR bom = 0xFEFF; // UTF-16 Little Endian BOM
+		file.Write(&bom, sizeof(bom));
+		file.Write(content, content.GetLength() * sizeof(TCHAR));
 
-			// 문자열 마지막에 널 문자(null character) 추가
-			const wchar_t nullchar = L'\0';
-			file.Write(&nullchar, sizeof(nullchar));
+		// 문자열 마지막에 널 문자(null character) 추가
+		const TCHAR nullchar = _T('\0');
+		file.Write(&nullchar, sizeof(nullchar));
 
-			file.Close();
+		file.Close();
 
 		// 이미지 출력하기
 		CRect rect;
 		CDC* dc;
 		CImage image;
-		CFileDialog dlg(TRUE, _T("*.jpg"), _T("image"), OFN_HIDEREADONLY, NULL);
+		CFileDialog dlg(TRUE, _T("*.jpg"), imageName, OFN_HIDEREADONLY);
+		m_puppy_file_path.SetWindowTextW(dlg.GetPathName());
 
 		m_puppy_image_view.GetWindowRect(rect);
 		dc = m_puppy_image_view.GetDC();
 		image.Load(imageName);
 		image.StretchBlt(dc->m_hDC, 0, 0, rect.Width(), rect.Height(), SRCCOPY);
-
-		m_puppy_file_path.SetWindowTextW(dlg.GetPathName());
-
 
 		// Edit Control 문자열 지우기
 		m_puppy_search_bar.SetWindowTextW(_T(""));
