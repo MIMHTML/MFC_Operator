@@ -31,6 +31,8 @@ void CValueServerDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CValueServerDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_WM_CTLCOLOR()
+	ON_WM_DESTROY()
 END_MESSAGE_MAP()
 
 
@@ -44,6 +46,14 @@ BOOL CValueServerDlg::OnInitDialog()
 	//  프레임워크가 이 작업을 자동으로 수행합니다.
 	SetIcon(m_hIcon, TRUE);			// 큰 아이콘을 설정합니다.
 	SetIcon(m_hIcon, FALSE);		// 작은 아이콘을 설정합니다.
+
+	mh_edit_bk_brush = ::CreateSolidBrush(RGB(0,255,255));
+
+	for (int i = 0; i < 6; i++) {
+	SetDlgItemText(IDC_EDIT1+i, _T("안녕하세요 김명일입니다"));
+	
+	}
+
 
 	// TODO: 여기에 추가 초기화 작업을 추가합니다.
 	m_server.Create(26001); //, 1 , _T("192.168.1.32"));
@@ -88,3 +98,63 @@ HCURSOR CValueServerDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+HBRUSH CValueServerDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+	HBRUSH hbr = CDialogEx::OnCtlColor(pDC, pWnd, nCtlColor);
+
+	int control_id = pWnd->GetDlgCtrlID();
+	if (control_id >= IDC_EDIT1 && control_id <= IDC_EDIT6) {
+		HWND cur_focus = ::GetFocus();
+		if (cur_focus == pWnd->m_hWnd) {
+			if (mh_old_focus != cur_focus) {
+				if (mh_old_focus != cur_focus)
+					::InvalidateRect(mh_old_focus, NULL, TRUE);
+				mh_old_focus = cur_focus;
+			}
+			pDC->SetTextColor(RGB(0, 200, 200));
+		}
+		else {
+			pDC->SetTextColor(RGB(0, 100, 100));
+		}
+
+
+		pDC->SetBkColor(RGB(0, 255, 255));
+		return mh_edit_bk_brush;
+	}
+	
+	/*if (control_id == IDC_EDIT2) {
+		pDC->SetTextColor(RGB(0, 120, 120));
+		pDC->SetBkColor(RGB(0, 200, 200));
+		return mh_edit_bk_brush;
+	}
+	if (control_id == IDC_EDIT3) {
+		pDC->SetTextColor(RGB(0, 150, 150));
+		pDC->SetBkColor(RGB(0, 150, 150));
+		return mh_edit_bk_brush;
+	}
+	if (control_id == IDC_EDIT4) {
+		pDC->SetTextColor(RGB(0, 180, 180));
+		pDC->SetBkColor(RGB(0, 120, 120));
+		return mh_edit_bk_brush;
+	}
+	if (control_id == IDC_EDIT5) {
+		pDC->SetTextColor(RGB(0, 255, 255));
+		pDC->SetBkColor(RGB(0, 80, 80));
+		return mh_edit_bk_brush;
+	}
+	if (control_id == IDC_EDIT6) {
+		pDC->SetTextColor(RGB(0, 255, 255));
+		pDC->SetBkColor(RGB(0, 30, 30));
+		return mh_edit_bk_brush;
+	}*/
+	
+	return hbr;
+}
+
+
+void CValueServerDlg::OnDestroy()
+{
+	CDialogEx::OnDestroy();
+
+	DeleteObject(mh_edit_bk_brush);
+}

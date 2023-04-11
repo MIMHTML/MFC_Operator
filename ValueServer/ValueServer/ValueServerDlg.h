@@ -9,6 +9,8 @@
 class CValueServerDlg : public CDialogEx
 {
 private:
+	HBRUSH mh_edit_bk_brush;
+	HWND mh_old_focus = NULL;
 	MyServer m_server;
 
 // 생성입니다.
@@ -33,4 +35,7 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	afx_msg void OnDestroy();
 };
