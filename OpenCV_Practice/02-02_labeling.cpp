@@ -21,7 +21,7 @@ void mouse_callback(int event, int x, int y, int flags, void* param)
 {
 	if (event == EVENT_LBUTTONDOWN)
 	{
-		Vec3b color_pixel = img_color.at<Vec3b>(y, x);
+		Vec3b color_pixel = img_color.at<Vec3b>(y, x); 
 
 		Mat bgr_color = Mat(1, 1, CV_8UC3, color_pixel);
 
